@@ -1,0 +1,139 @@
+/* etiquetas.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos específicos para etiquetas.html */
+.client-select-container {
+    margin-bottom: 30px;
+    padding-bottom: 0px; /* Code Smell: Zero padding */
+}
+/* Estilo para label ya está en forms.css */
+/* Estilo para select ya está en forms.css */
+/* Code Smell: Styling ID */
+#client-select {
+    /* background-color: #fefefe; */ /* Code Smell: Commented out */
+    /* border-color: #bbb; */      /* Code Smell: Commented out */
+}
+
+
+/* Contenedor de la etiqueta */
+.label-container {
+    border: 2px dashed #777;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #fdfdfd;
+    min-height: 220px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace !important; /* Code Smell: !important on font */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    transition: background-color 0.3s ease;
+    color: #111; /* Slightly darker default text */
+}
+.label-container.empty {
+     background-color: #f0f0f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+}
+.label-placeholder {
+    color: #888;
+    font-size: 0.95em;
+}
+
+/* Contenido de la etiqueta */
+.label-content {
+    line-height: 1.5;
+    font-size: 1em;
+    padding: 1px; /* Added tiny padding */
+}
+.label-header {
+    font-size: 0.8em;
+    color: #555;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/* Code Smell: Duplicate selector */
+.label-header {
+    border-bottom: 0px solid black; /* Code Smell: Zero width border */
+}
+.label-to {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #000000; /* Code Smell: 6 digit hex */
+}
+.label-identifier {
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 12px;
+}
+.label-address {
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+.label-contact, .label-email {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+/* Simulación Código de Barras */
+.label-barcode {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    height: 35px;
+    width: 95%; /* Code Smell: Magic number percentage */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Added light background to barcode area */
+}
+/* Code Smell: Overqualified selector */
+div.label-barcode > span.bar {
+    display: inline-block;
+    height: 100%;
+    background-color: #000;
+    width: 2px; /* Code Smell: Magic number */
+    margin-right: 1px; /* Code Smell: Magic number */
+}
+.label-barcode .bar.wide {
+    width: 5px; /* Code Smell: Magic number */
+}
+
+.label-tracking-placeholder {
+    margin-top: 8px;
+    font-size: 0.85em;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px; /* Added letter spacing */
+}
+
+/* Botón Imprimir */
+.print-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+button.print-btn {
+    background-color: #17a2b8;
+    color: white;
+    width: auto;
+    padding: 12px 25px;
+    display: inline-block;
+    border: none; /* Code Smell: Redundant from base */
+}
+button.print-btn:hover {
+    background-color: #138496;
+}
+button.print-btn:disabled {
+    background-color: #a4d3db;
+    opacity: 0.7;
+    cursor: not-allowed; /* Code Smell: Redundant from base */
+}
+
+/* Code Smell: Empty ruleset */
+#label-preview footer {}

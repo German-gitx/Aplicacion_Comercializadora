@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Cliente / Etiqueta</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/etiquetas.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+     <script src="js/auth.js"></script>
+</head>
+    <div class="mobile-wrapper">
+
+        <h1>Consultar Cliente / Generar Etiqueta</h1>
+
+        <div class="client-select-container">
+            <label for="client-select">Seleccione un Cliente:</label>
+            <select id="client-select">
+                <option value="">-- Seleccionar --</option>
+                </select>
+        </div>
+
+        <h2>Vista Previa de Etiqueta</h2>
+        <div id="label-preview" class="label-container">
+            <p class="label-placeholder">Seleccione un cliente para ver la etiqueta.</p>
+            </div>
+
+        <div class="print-button-container">
+             <button id="print-label-btn" class="print-btn" disabled>Imprimir Etiqueta</button>
+        </div>
+        <a href="index.html" class="back-link">Volver al Menú Principal</a>
+
+    </div>
+    <script src="js/etiquetas.js"></script>
+</html>

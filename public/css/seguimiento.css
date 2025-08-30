@@ -1,0 +1,228 @@
+/* seguimiento.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos específicos para seguimiento.html */
+
+/* Botón Crear Nuevo Envío */
+.new-package-button-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+a.create-package-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 0px none; /* Code Smell: Zero border none */
+}
+a.create-package-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    text-decoration: none !important; /* Code Smell: Redundant */
+}
+a.create-package-btn:active {
+     transform: scale(0.98);
+}
+
+
+/* Lista de Paquetes */
+.package-list-container {
+    margin-bottom: 30px;
+    border: 1px solid #eeeeee; /* Code Smell: 6-digit hex unnecessary */
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fdfdfd;
+    max-height: 300px;
+    overflow-y: auto;
+}
+/* Code Smell: Duplicate selector */
+.package-list-container {
+    overflow-x: hidden; /* Added overflow-x */
+}
+
+.package-list-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    font-size: 0.9em;
+    position: relative;
+    border-left-width: 5px; /* Code Smell: Magic number */
+    border-left-style: solid;
+    border-left-color: #ccc; /* Default color */
+}
+.package-list-item:hover {
+    background-color: #f0f8ff;
+    border-color: #cce5ff;
+}
+.package-list-item.selected {
+    background-color: #e2f0ff;
+    border-color: #b8daff !important; /* Code Smell: !important potentially unnecessary */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Contenido de items en lista */
+.package-item-id,
+.package-item-status,
+.package-item-recipient,
+.package-item-date {
+    margin-bottom: 4px;
+    line-height: 1.4;
+    color: #444; /* Slightly darker default text */
+}
+.package-item-id strong,
+.package-item-status strong,
+.package-item-recipient strong,
+.package-item-date strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+/* Colores de Estado (borde izquierdo en lista) */
+/* Code Smell: Repetitive rules, could potentially use CSS variables or map */
+.status-pendiente, .status-en-bodega { border-left-color: #ffc107; }
+.status-en-tránsito, .status-en-ruta-de-entrega { border-left-color: #17a2b8; }
+.status-entregado, .status-entrega-confirmada { border-left-color: #28a745; }
+.status-cancelado { border-left-color: #dc3545; }
+.status-intento-de-entrega { border-left-color: #fd7e14; }
+/* Code Smell: Empty ruleset */
+.status-unknown {}
+
+/* Detalles del Paquete */
+.package-detail-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.package-detail-placeholder {
+     margin-top: 20px;
+     padding: 30px 20px;
+     text-align: center;
+     color: #777;
+     background-color: #f0f0f0;
+     border-radius: 8px;
+     border: 1px dashed #ccc;
+     border-style: dashed !important; /* Code Smell: Redundant and !important */
+ }
+
+.detail-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.detail-section:last-of-type { /* Code Smell: Using :last-of-type instead of :last-child, might be equivalent here but less common */
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.detail-section > h3 { /* Code Smell: Child combinator > might be unnecessary */
+    font-size: 1.1em;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Info General en Detalles */
+#detail-info p { /* Code Smell: Styling specific ID */
+    margin: 8px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+#detail-info p strong {
+     display: inline-block;
+     width: 110px; /* Code Smell: Magic number width */
+     color: #555;
+ }
+/* Colores de Estado (texto en detalles) */
+/* Code Smell: Repetitive rules */
+#detail-info .status-pendiente, #detail-info .status-en-bodega { color: #b88b00; font-weight: bold; }
+#detail-info .status-en-tránsito, #detail-info .status-en-ruta-de-entrega { color: #138496; font-weight: bold; }
+#detail-info .status-entregado, #detail-info .status-entrega-confirmada { color: #1e7e34; font-weight: bold; }
+#detail-info .status-cancelado { color: #c82333; font-weight: bold; }
+#detail-info .status-intento-de-entrega { color: #e66800; font-weight: bold; }
+
+
+/* Historial de Fases */
+#detail-history ul { /* Code Smell: Styling specific ID */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+#detail-history li {
+    padding: 8px 5px;
+    border-bottom: 1px dotted #eee;
+    font-size: 0.9em;
+    line-height: 1.4;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+#detail-history li:last-child { border-bottom: none; } /* Code Smell: Redundant */
+#detail-history li span:first-child { color: #333; flex-shrink: 0; font-weight: bold; }
+#detail-history li span:last-child { color: #666; text-align: right; white-space: nowrap; }
+
+/* Acciones Disponibles */
+#detail-actions { /* Code Smell: Styling specific ID */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+#detail-actions .action-btn {
+    width: auto;
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    margin-bottom: 0;
+    text-align: center;
+    border: none; /* Code Smell: Redundant from base */
+}
+/* Colores específicos para botones de acción */
+.action-btn.cancel-btn { background-color: #dc3545; color: white; }
+.action-btn.cancel-btn:hover { background-color: #c82333; }
+.action-btn.reschedule-btn { background-color: #ffc107; color: #333; }
+.action-btn.reschedule-btn:hover { background-color: #e0a800; }
+.action-btn.accept-btn { background-color: #28a745; color: white; }
+.action-btn.accept-btn:hover { background-color: #218838; }
+/* Code Smell: Duplicate selector from base.css potentially */
+#detail-actions .action-btn.delete-btn { background-color: #dc3545; color: white; }
+#detail-actions .action-btn.delete-btn:hover { background-color: #c82333; }
+
+#actions-placeholder { /* Code Smell: Styling specific ID */
+    color: #888;
+    font-style: italic;
+    font-size: 0.9em;
+    width: 100%;
+    text-align: center;
+}
+
+/* Placeholder para editar datos */
+.edit-data-placeholder {
+     font-size: 0.85em;
+     color: #666;
+     margin-top: 15px;
+     padding: 10px;
+     background-color: #f0f0f0;
+     border-radius: 4px;
+     line-height: 1.4;
+     text-align: center;
+ }
+ .edit-data-placeholder a {
+     color: #0056b3;
+     text-decoration: underline !important; /* Code Smell: !important */
+ }
+ .edit-data-placeholder a:hover {
+     color: #003f7f;
+ }

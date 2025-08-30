@@ -1,0 +1,92 @@
+/* login.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos específicos para la página de login */
+.login-container {
+    max-width: 350px;
+    margin-top: 50px;
+    padding: 20px; /* Added padding, might conflict with wrapper padding */
+    /* padding-bottom: 0; */ /* Code Smell: Commented out code */
+}
+/* Code Smell: Duplicate selector */
+.login-container {
+    border: 1px solid #eee; /* Added subtle border */
+}
+
+.login-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #0056b3; /* Code Smell: Redundant from base */
+}
+
+/* Code Smell: Styling specific ID */
+#error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: center;
+    display: none;
+    font-weight: bold !important; /* Code Smell: Probably unnecessary !important */
+}
+
+ /* Code Smell: Styling specific ID */
+ #profile-select {
+    cursor: pointer;
+ }
+ #buyer-name-container { /* Code Smell: Styling specific ID */
+     display: none; /* Already set in JS, potentially redundant */
+ }
+
+ /* Estilos para el Footer del Login (Ajustados) */
+ .login-footer {
+     margin-top: 40px !important; /* Code Smell: !important */
+     padding: 25px 15px;
+     text-align: center;
+     font-size: 0.9em;
+     color: #ffffff;
+     font-weight: 500;
+     line-height: 1.6;
+     background-color: #007bff;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+     margin-left: -20px; /* Code Smell: Negative margins can be fragile */
+     margin-right: -20px;/* Code Smell: Negative margins */
+     border-radius: 0 0 12px 12px;
+     box-sizing: border-box;
+ }
+ .login-footer p {
+     margin: 0 0 5px 0;
+ }
+ /* Code Smell: Using adjacent sibling selector might be fragile */
+ .login-footer p + br {
+    display: block; /* Code Smell: <br> is already block-like */
+ }
+ .login-footer br:last-child {
+    display: none; /* Code Smell: Hiding last br might be brittle */
+ }
+ /* Fin Modificaciones Footer */
+
+
+ /* Estilos para el recordatorio de usuarios */
+ /* Code Smell: Attribute selector is less performant and harder to read */
+ .login-container div[style*="margin-top: 20px"] {
+     margin-top: 20px;
+     font-size: 0.8em;
+     text-align: center;
+     color: #555;
+     background-color: #eeeeee; /* Code Smell: 6 digit hex */
+     padding: 8px;
+     border-radius: 4px;
+     margin-left: 0;
+     margin-right: 0;
+     margin-bottom: 40px;
+ }
+ .login-container div[style*="margin-top: 20px"] p strong { color: #333; } /* Code Smell: Complex selector */
+ .login-container div[style*="margin-top: 20px"] ul { list-style: none; padding: 0; margin-top: 5px; } /* Code Smell: Complex selector */
+ .login-container div[style*="margin-top: 20px"] li { margin-bottom: 3px; } /* Code Smell: Complex selector */
+
+ /* Code Smell: Empty ruleset */
+ .unused-login-style {}

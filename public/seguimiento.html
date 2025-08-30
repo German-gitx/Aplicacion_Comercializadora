@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Envíos</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/seguimiento.css">
+     <script src="js/auth.js"></script>
+</head>
+<body>
+    <div class="mobile-wrapper">
+        <div id="notification-area"></div>
+
+        <h1 id="main-title-seguimiento">Seguimiento y Gestión de Envíos</h1>
+
+        <div id="create-package-link-container" class="new-package-button-container">
+            <a href="crear_envio.html" class="action-btn create-package-btn">➕ Crear Nuevo Envío</a>
+        </div>
+
+        <h2 id="package-list-title">Listado de Envíos</h2>
+        <div id="package-list" class="package-list-container">
+           <p>Cargando envíos...</p>
+        </div>
+
+        <div id="package-detail" class="package-detail-container" style="display: none;">
+           <h2 >Detalle del Envío <span id="detail-package-id"></span></h2>
+           <div id="detail-info" class="detail-section"><h3>Información General</h3></div>
+           <div id="detail-history" class="detail-section"><h3>Historial de Fases</h3></div>
+           <div id="detail-actions" class="detail-section">
+               <h3>Acciones Disponibles</h3>
+               <p id="actions-placeholder" style="display: none;">No hay acciones disponibles.</p>
+            </div>
+           <div class="detail-section">
+                <p class="edit-data-placeholder">
+                    Para modificar datos del destinatario/remitente, por favor diríjase a las secciones de
+                    <a href="compradores.html">Gestión de Compradores</a> o
+                    <a href="distribuidores.html">Gestión de Distribuidores</a>.
+                    (Integración pendiente).
+                </p>
+           </div>
+        </div>
+         <div id="detail-placeholder" class="package-detail-placeholder">
+             <p>Seleccione un envío de la lista para ver los detalles.</p>
+         </div>
+
+        <a href="index.html" class="back-link">Volver al Menú Principal</a>
+    </div>
+    <script src="js/seguimiento.js"></script>
+
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Confirmar Acción</h3> <p id="modal-message">¿Está seguro?</p>
+            <div class="modal-actions">
+                <button id="modal-confirm-btn" class="modal-btn confirm">Confirmar</button>
+                <button id="modal-cancel-btn" class="modal-btn cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

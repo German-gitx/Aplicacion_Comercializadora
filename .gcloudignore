@@ -1,0 +1,9 @@
+# .gcloudignore
+
+node_modules/
+.git/
+*.log
+*.yaml~
+*.pyc
+.env
+# Añade cualquier otro archivo o carpeta que no deba subirse

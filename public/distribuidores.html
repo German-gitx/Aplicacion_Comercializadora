@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Distribuidores</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <div class="mobile-wrapper">
+
+        <div id="notification-area"></div>
+
+        <h1>Gestión de Distribuidores</h1>
+        <form id="distributor-form">
+            <h2>Registrar / Actualizar Distribuidor</h2>
+            <input type="hidden" id="distributor-id">
+            <div class="form-group"> <label for="razon-social">Razón Social:</label> <input type="text" id="razon-social" required> </div>
+            <div class="form-group"> <label for="nit">NIT:</label> <input type="text" id="nit" required> </div>
+            <div class="form-group"> <label for="telefono-dist">Teléfono:</label> <input type="tel" id="telefono-dist" required> </div>
+            <div class="form-group"> <label for="direccion-dist">Dirección:</label> <input type="text" id="direccion-dist" required> </div>
+            <div class="form-group"> <label for="correo-dist">Correo Electrónico:</label> <input type="email" id="correo-dist" required> </div>
+            <div class="form-group"> <label for="contacto-principal">Contacto Principal:</label> <input type="text" id="contacto-principal"> </div>
+            <div class="form-actions"> <button type="submit" id="add-dist-btn">Agregar Distribuidor</button> <button type="submit" id="update-dist-btn" disabled>Actualizar Distribuidor</button> <button type="button" id="clear-dist-btn">Limpiar</button> </div>
+        </form>
+
+        <h2>Listado de Distribuidores</h2>
+        <div class="table-container">
+            <table id="distributors-table">
+               <thead>
+                   <tr>
+                       <th>Razón Social</th>
+                       <th>NIT</th>
+                       <th>Teléfono</th>
+                       <th>Dirección</th>
+                       <th>Correo</th>
+                       <th>Contacto</th>
+                       <th>Acciones</th>
+                   </tr>
+                </thead>
+               <tbody id="distributors-table-body">
+                   </tbody>
+            </table>
+        </div>
+
+        <a href="index.html" class="back-link">Volver al Menú Principal</a>
+    </div>
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Confirmar Eliminación</h3>
+            <p id="modal-message">¿Está seguro de que desea eliminar este registro? Esta acción no se puede deshacer.</p>
+            <div class="modal-actions">
+                <button id="modal-confirm-btn" class="modal-btn confirm">Confirmar</button>
+                <button id="modal-cancel-btn" class="modal-btn cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/distribuidores.js"></script>
+</body>
+</html>

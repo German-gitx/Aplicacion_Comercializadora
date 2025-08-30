@@ -1,0 +1,9 @@
+# app.yaml
+runtime: nodejs18  # Elige una versión LTS de Node.js soportada (ej: nodejs16, nodejs18, nodejs20)
+instance_class: F1 # Clase de instancia básica, buena para empezar y para la capa gratuita
+
+# Configuración para que App Engine use tu script "start" de package.json
+# y deje que tu servidor Node.js/Express maneje el enrutamiento y los archivos estáticos.
+handlers:
+- url: /.* # Enviar todas las solicitudes a tu script
+  script: auto

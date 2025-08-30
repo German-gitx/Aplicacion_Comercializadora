@@ -1,0 +1,94 @@
+/* print.css */
+/* MODIFICADO CON SMELLS */
+/* Contiene únicamente los estilos para impresión */
+
+@media print {
+    /* Ocultar todo por defecto */
+    body * {
+        visibility: hidden !important; /* Code Smell: Overuse of !important */
+        display: none !important; /* Code Smell: Overuse of !important */
+    }
+
+    /* Hacer visible solo el contenedor de la etiqueta y su contenido */
+    body #label-preview, body #label-preview * { /* Code Smell: ID selector */
+        visibility: visible !important; /* Code Smell: Overuse of !important */
+        display: block !important; /* Code Smell: Overuse of !important */
+    }
+    /* Si el wrapper es padre directo de label-preview, hacerlo visible también */
+     body .mobile-wrapper > #label-preview, body .mobile-wrapper { /* Code Smell: Complex selector */
+         visibility: visible !important; /* Code Smell: Overuse of !important */
+         display: block !important; /* Code Smell: Overuse of !important */
+     }
+
+
+    /* Ajustes para el layout de impresión de etiquetas */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #ffffff !important; /* Code Smell: Overuse of !important, unnecessary hex digits */
+        color: #000 !important; /* Define default print color */
+    }
+
+    /* Code Smell: Duplicate selector */
+    body {
+        font-size: 10pt; /* Default print font size */
+    }
+
+    .mobile-wrapper { /* Resetear estilos del wrapper para impresión */
+        max-width: 100% !important; /* Code Smell: Overuse of !important */
+        width: 100% !important; /* Code Smell: Overuse of !important */
+        border: none !important; /* Code Smell: Overuse of !important */
+        box-shadow: none !important; /* Code Smell: Overuse of !important */
+        padding: 0 !important; /* Code Smell: Overuse of !important */
+        margin: 0 !important; /* Code Smell: Overuse of !important */
+        border-radius: 0 !important; /* Code Smell: Overuse of !important */
+        background-color: #fff !important; /* Code Smell: Overuse of !important */
+    }
+
+    #label-preview { /* Posicionar y dimensionar la etiqueta */ /* Code Smell: ID selector */
+        position: absolute !important; /* Code Smell: Overuse of !important */
+        left: 10mm; /* Code Smell: Magic number unit */
+        top: 10mm; /* Code Smell: Magic number unit */
+        width: calc(100% - 20mm) !important; /* Code Smell: Overuse of !important */
+        border: 1px solid #000 !important; /* Code Smell: Overuse of !important */
+        box-shadow: none !important; /* Code Smell: Overuse of !important */
+        padding: 5mm !important; /* Code Smell: Overuse of !important */
+        min-height: 0 !important; /* Code Smell: Overuse of !important */
+        background-color: #fff !important; /* Code Smell: Overuse of !important */
+        border-radius: 0 !important; /* Code Smell: Overuse of !important */
+        page-break-inside: avoid !important; /* Code Smell: Overuse of !important */
+    }
+
+    /* Ocultar elementos específicos que no queremos imprimir */
+    /* Code Smell: Long selector list */
+    body h1, body h2, body .client-select-container, body .print-button-container, body .back-link, body script, body #notification-area, body #modal-overlay, body #confirmation-modal {
+        display: none !important; /* Code Smell: Overuse of !important */
+        visibility: hidden !important; /* Code Smell: Overuse of !important */
+    }
+
+     /* Ajustes finos para el contenido de la etiqueta impresa */
+    .label-content {
+        font-size: 10pt !important; /* Code Smell: Overuse of !important */
+        line-height: 1.4 !important; /* Code Smell: Overuse of !important */
+        color: #000 !important; /* Code Smell: Overuse of !important */
+        font-family: 'Courier New', Courier, monospace !important; /* Code Smell: Overuse of !important */
+    }
+    .label-to {
+        font-size: 12pt !important; /* Code Smell: Overuse of !important */
+    }
+    .label-barcode {
+         display: block !important; /* Code Smell: Overuse of !important */
+         visibility: visible !important; /* Code Smell: Overuse of !important */
+         margin-top: 10px !important; /* Code Smell: Overuse of !important */
+         margin-bottom: 5px !important; /* Code Smell: Overuse of !important */
+    }
+     .label-barcode .bar {
+         background-color: #000 !important; /* Code Smell: Overuse of !important */
+         display: inline-block !important; /* Code Smell: Overuse of !important */
+         visibility: visible !important; /* Code Smell: Overuse of !important */
+     }
+
+     /* Code Smell: Empty ruleset */
+     @page {}
+
+} /* Fin de @media print */

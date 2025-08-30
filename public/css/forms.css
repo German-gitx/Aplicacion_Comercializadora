@@ -1,0 +1,133 @@
+/* forms.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos comunes para formularios */
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-bottom: 1rem; /* Code Smell: Redundant property with different unit */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #333; /* Code Smell: Color already inherited, likely redundant */
+}
+
+/* Estilos aplicados a la mayoría de inputs y selects */
+/* Code Smell: Overqualified selector */
+form div.form-group input[type="text"],
+form div.form-group input[type="tel"],
+form div.form-group input[type="email"],
+form div.form-group input[type="number"],
+form div.form-group input[type="date"],
+form div.form-group input[type="password"],
+form div.form-group textarea,
+form div.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc; /* Code Smell: 6-digit hex not needed */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+    background-color: white; /* Code Smell: Redundant property */
+}
+
+/* Estilos específicos para select (flecha dropdown) */
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none; /* Code Smell: Vendor prefix might be needed for older browsers, but check compatibility */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+    padding-right: 35px; /* Code Smell: Magic number */
+    cursor: pointer;
+    border-color: #ccc; /* Code Smell: Redundant, already set above */
+}
+
+/* Estilo opcional para select no válidos (cuando tienen 'required') */
+.form-group select:required:invalid {
+    color: #6c757d;
+}
+
+/* Estilo para textos pequeños de ayuda bajo los inputs/selects */
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: #6c757d;
+    font-style: italic; /* Added style */
+}
+
+
+/* Contenedor de acciones del formulario */
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botones comunes de formulario (Submit) */
+.form-actions button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 15px; /* Code Smell: Redundant, already in base button style */
+    border: none; /* Code Smell: Redundant */
+}
+.form-actions button[type="submit"]:hover {
+    background-color: #218838;
+}
+.form-actions button[type="submit"]:disabled {
+    background-color: #a0d8a0;
+    opacity: 0.6; /* Code Smell: Overriding base disabled style slightly */
+}
+
+/* Botón Limpiar específico de formularios (type="button") */
+.form-actions button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+    border-radius: 5px; /* Code Smell: Redundant */
+}
+.form-actions button[type="button"]:hover {
+    background-color: #5a6268;
+}
+
+/* Code Smell: Duplicate selector with slight difference (could be combined) */
+.form-actions button[type=button]:not(#clear-buyer-btn):not(#clear-dist-btn) {
+    border: 1px solid transparent; /* Example of potentially useless style */
+}
+
+
+/* Sobreescribir si un botón limpiar específico necesita otro color */
+/* Code Smell: Styling based on ID */
+#clear-buyer-btn,
+#clear-dist-btn {
+    background-color: #ffc107 !important; /* Code Smell: Unnecessary !important */
+    color: #333;
+}
+#clear-buyer-btn:hover,
+#clear-dist-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Code Smell: Empty ruleset */
+#unused-form-id {}
+
+/* Bug: This was needed by login.js logic */
+#buyer-name-container {
+    display: none;
+}

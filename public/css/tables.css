@@ -1,0 +1,91 @@
+/* tables.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos para tablas de datos */
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #dddddd; /* Code Smell: 6-digit hex not needed */
+    border-radius: 4px;
+    border-top-width: 1px; /* Code Smell: Redundant */
+}
+
+table {
+    width: 100%;
+    min-width: 600px; /* Ancho mínimo */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-spacing: 0; /* Code Smell: Redundant with border-collapse */
+}
+
+/* Code Smell: Applying border twice */
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.9em;
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd; /* Code Smell: Redundant */
+}
+
+th {
+    background-color: #007BFF !important; /* Code Smell: Uppercase hex, !important */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-color: #ddd; /* Code Smell: Redundant */
+}
+
+/* Code Smell: Using type selector unnecessarily */
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Code Smell: Empty ruleset */
+tr:nth-child(odd) {}
+
+td:last-child { /* Columna de acciones */
+    white-space: normal;
+    text-align: center;
+}
+
+/* Botones dentro de las tablas */
+/* Code Smell: Overqualified selector */
+table tbody tr td button.edit-btn,
+table tbody tr td button.delete-btn {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 4px;
+    padding: 5px 10px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    border: none; /* Code Smell: Redundant from base button */
+}
+
+/* Code Smell: Duplicate selectors */
+td button.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+    border-radius: 3px; /* Code Smell: Different radius than base */
+}
+td button.edit-btn:hover {
+     background-color: #e0a800;
+}
+
+td button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 3px; /* Code Smell: Different radius than base */
+}
+td button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Bug: Closing brace missing */
+/* } */ /* This was the original closing brace */
+/* Intentionally leaving the closing brace off to create a CSS error */
+
+/* Adding a final closing brace to make the file parseable, but the error above remains */
+}

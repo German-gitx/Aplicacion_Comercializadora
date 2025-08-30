@@ -1,0 +1,74 @@
+/* menu.css */
+/* MODIFICADO CON SMELLS */
+
+/* Estilos específicos para index.html */
+
+/* Code Smell: Styling specific ID */
+#main-menu-container { /* Assuming this is the ID used in index.html for the nav */
+     padding: 0;
+     box-shadow: none;
+     background-color: transparent;
+ }
+ /* Code Smell: Styling element directly inside ID - overqualified */
+ #main-menu-container h1 {
+     font-size: 1.8em;
+      margin-bottom: 35px;
+      color: #0056b3; /* Code Smell: Redundant from base.css h1 */
+ }
+ 
+ .menu-link {
+     display: block;
+     color: white !important;
+     padding: 15px 20px;
+     margin: 18px 0;
+     text-decoration: none !important;
+     border-radius: 8px;
+     font-size: 1.1em;
+     text-align: center;
+     transition: background-color 0.3s ease, transform 0.2s ease;
+     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+     border: 0; /* Code Smell: Redundant border=0 for link */
+ }
+ .menu-link:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+     text-decoration: none !important; /* Code Smell: Redundant */
+ }
+ 
+ /* Colores específicos para cada botón del menú */
+ /* Code Smell: Repetitive structure */
+ .menu-link {
+      background-color: #007bff;
+      color: #FFFFFF; /* Code Smell: Redundant, uppercase hex */
+ }
+ .menu-link:hover {
+     background-color: #0056b3;
+ }
+ .menu-link.compradores {
+      background-color: #28a745;
+ }
+ .menu-link.compradores:hover {
+      background-color: #218838;
+ }
+ .menu-link.etiquetas {
+      background-color: #fd7e14;
+ }
+ .menu-link.etiquetas:hover {
+      background-color: #e66800;
+ }
+ .menu-link.seguimiento {
+      background-color: #6f42c1;
+ }
+ .menu-link.seguimiento:hover {
+      background-color: #5a32a3;
+ }
+ 
+ /* Code Smell: Empty ruleset */
+ .unused-menu-item {}
+ 
+ /* Code Smell: Commented out CSS */
+ /*
+ .menu-link.admin-only {
+     border: 1px solid gold;
+ }
+ */

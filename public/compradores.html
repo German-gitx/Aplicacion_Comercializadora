@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión / Mi Perfil</title>
+    <link rel="stylesheet" href="css/base.css"> <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+     <div class="mobile-wrapper">
+        <div id="notification-area"></div>
+        <h1 id="main-title">Gestión de Compradores</h1>
+
+         <form id="buyer-form">
+            <h2 id="form-title">Registrar / Actualizar Comprador</h2>
+            <input type="hidden" id="buyer-id">
+            <div class="form-group"> <label for="nombre">Nombre:</label> <input type="text" id="nombre" required> </div>
+            <div class="form-group"> <label for="apellido">Apellido:</label> <input type="text" id="apellido" required> </div>
+            <div class="form-group"> <label for="documento">Documento de Identidad o NIT:</label> <input type="text" id="documento" required> </div>
+            <div class="form-group"> <label for="telefono">Número Telefónico:</label> <input type="tel" id="telefono" required> </div>
+            <div class="form-group"> <label for="direccion">Dirección:</label> <input type="text" id="direccion" required> </div>
+            <div class="form-group"> <label for="correo">Correo Electrónico:</label> <input type="email" id="correo" required> </div>
+            <div class="form-actions">
+                <button type="submit" id="add-buyer-btn">Agregar Comprador</button>
+                <button type="submit" id="update-buyer-btn">Actualizar Mis Datos</button>
+                <button type="button" id="clear-buyer-btn">Limpiar</button>
+            </div>
+        </form>
+
+        <div id="buyer-list-section">
+            <h2>Listado de Compradores</h2>
+             <div class="table-container">
+                <table id="buyers-table">
+                    <thead> <tr> <th>Nombre</th> <th>Apellido</th> <th>Documento/NIT</th> <th>Teléfono</th> <th>Dirección</th> <th>Correo</th> <th>Acciones</th> </tr> </thead>
+                    <tbody id="buyers-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">Volver al Menú Principal</a>
+    </div>
+    <div id="modal-overlay" class="modal-overlay"></div>
+     <div id="confirmation-modal" class="modal">
+         <div class="modal-content">
+             <h3 id="modal-title">Confirmar Eliminación</h3>
+             <p id="modal-message">¿Está seguro de que desea eliminar este registro? Esta acción no se puede deshacer.</p>
+             <div class="modal-actions">
+                 <button id="modal-confirm-btn" class="modal-btn confirm">Confirmar</button>
+                 <button id="modal-cancel-btn" class="modal-btn cancel">Cancelar</button>
+             </div>
+         </div>
+     </div>
+     <script src="js/compradores.js"></script>
+</body>
+</html>
